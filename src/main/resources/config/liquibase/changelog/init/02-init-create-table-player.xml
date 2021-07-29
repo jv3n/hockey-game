@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet  author="hockey" id="02-init-create-table-player">
+        <createSequence sequenceName="seq_pla_number" startValue="1" incrementBy="1"/>
+
+        <createTable tableName="t_player" remarks="Table des Player">
+            <column name="pla_number" remarks="Identifiant du Player" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pla_team_id" remarks="Team du player" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pla_name" remarks="Prenom du player" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pla_lastname" remarks="Nom du player" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pla_position" remarks="Position du Player" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pla_is_captain" remarks="Si le Player est capitaine de son équipe" type="bool"/>
+        </createTable>
+
+        <addPrimaryKey tableName="t_player" columnNames="pla_number" constraintName="pk_pla_number"/>
+        <addForeignKeyConstraint baseTableName="t_player"
+                                 baseColumnNames="pla_team_id"
+                                 constraintName="fk_pla_team_id"
+                                 referencedTableName="t_team"
+                                 referencedColumnNames="tea_id"/>
+    </changeSet>
+
+</databaseChangeLog>

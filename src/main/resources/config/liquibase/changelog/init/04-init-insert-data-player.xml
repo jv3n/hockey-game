@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet  author="hockey" id="04-init-insert-data-player">
+        <insert tableName="t_player">
+            <column name="pla_number" valueComputed="seq_pla_number.NEXTVAL"/>
+            <column name="pla_team_id" value="1"/>
+            <column name="pla_name" value="Jean"/>
+            <column name="pla_lastname" value="Marc"/>
+            <column name="pla_position" value="centre"/>
+            <column name="pla_is_captain" value="true"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,8 +1,10 @@
 package com.maplr.testhockeygame.repository.impl;
 
-import com.maplr.testhockeygame.entity.Player;
+import com.maplr.testhockeygame.bean.PlayerBean;
+import com.maplr.testhockeygame.repository.entity.Player;
 import com.maplr.testhockeygame.exception.PlayerNotFoundException;
 import com.maplr.testhockeygame.repository.PlayerRepository;
+import com.maplr.testhockeygame.repository.mapperrepository.PlayerRepositoryMapper;
 import com.maplr.testhockeygame.repository.springrepository.SpringPlayerRepository;
 import org.springframework.stereotype.Component;
 
@@ -10,21 +12,23 @@ import org.springframework.stereotype.Component;
 public class PlayerRepositoryImpl implements PlayerRepository {
 
 	private final SpringPlayerRepository repository;
+	private final PlayerRepositoryMapper repositoryMapper;
 
-	public PlayerRepositoryImpl(SpringPlayerRepository repository) {
+	public PlayerRepositoryImpl(SpringPlayerRepository repository, PlayerRepositoryMapper repositoryMapper) {
 		this.repository = repository;
+		this.repositoryMapper = repositoryMapper;
 	}
 
-	public Player create(Player player) {
-		return repository.save(player);
+	public PlayerBean create(PlayerBean player) {
+		return repositoryMapper.toBean(repository.save(repositoryMapper.toEntity(player)));
 	}
 
-	public Player updateCaptain(Long number) {
+	public PlayerBean updateCaptain(Long number) {
 		Player player = repository.findById(number).orElseThrow(() -> new PlayerNotFoundException("Erreur: le joueur n'existe pas en base"));
 
 		// On met tous les cpitaines de l'equipe à false
-		repository.updateIsCaptain(player.getTeamId(), false);
+		repository.updateIsCaptain(player.getPla_team_id(), false);
 
-		return repository.save(player.setIsCaptain(true));
+		return repositoryMapper.toBean(repository.save(player.setPla_is_captain(true)));
 	}
 }

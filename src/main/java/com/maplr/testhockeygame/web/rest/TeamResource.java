@@ -3,6 +3,7 @@ package com.maplr.testhockeygame.web.rest;
 import com.maplr.testhockeygame.dto.TeamDto;
 import com.maplr.testhockeygame.mapper.TeamMapper;
 import com.maplr.testhockeygame.service.TeamService;
+import com.maplr.testhockeygame.service.impl.TeamServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

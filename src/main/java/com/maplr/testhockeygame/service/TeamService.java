@@ -1,22 +1,15 @@
 package com.maplr.testhockeygame.service;
 
-import com.maplr.testhockeygame.entity.Team;
-import com.maplr.testhockeygame.repository.TeamRepository;
-import org.springframework.stereotype.Service;
+import com.maplr.testhockeygame.bean.TeamBean;
+import com.maplr.testhockeygame.repository.entity.Team;
 
-import javax.transaction.Transactional;
+public interface TeamService {
 
-@Service
-@Transactional
-public class TeamService {
-
-	private final TeamRepository teamRepository;
-
-	public TeamService(TeamRepository teamRepository) {
-		this.teamRepository = teamRepository;
-	}
-
-	public Team findTeamByYear(String year) {
-		return teamRepository.findByYear(year);
-	}
+	/**
+	 * Recherche la team selon l'année
+	 *
+	 * @param year année
+	 * @return {@link Team}
+	 */
+	TeamBean findTeamByYear(String year);
 }

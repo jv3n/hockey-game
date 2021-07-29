@@ -1,26 +1,22 @@
 package com.maplr.testhockeygame.service;
 
-import com.maplr.testhockeygame.entity.Player;
-import com.maplr.testhockeygame.repository.PlayerRepository;
-import org.springframework.stereotype.Service;
+import com.maplr.testhockeygame.bean.PlayerBean;
 
-import javax.transaction.Transactional;
+public interface PlayerService {
 
-@Service
-@Transactional
-public class PlayerService {
+	/**
+	 * Creation d'un player
+	 *
+	 * @param player player
+	 * @return {@link PlayerBean}
+	 */
+	PlayerBean create(PlayerBean player);
 
-	private final PlayerRepository repository;
-
-	public PlayerService(PlayerRepository repository) {
-		this.repository = repository;
-	}
-
-	public Player create(Player player) {
-		return repository.create(player);
-	}
-
-	public Player updateCaptain(Long number) {
-		return repository.updateCaptain(number);
-	}
+	/**
+	 * Update d'un player pour le passer en capitaine de son équipe
+	 *
+	 * @param number numero du player
+	 * @return {@link PlayerBean}
+	 */
+	PlayerBean updateCaptain(Long number);
 }

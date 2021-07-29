@@ -1,6 +1,6 @@
 package com.maplr.testhockeygame.web.rest;
 
-import com.maplr.testhockeygame.entity.Player;
+import com.maplr.testhockeygame.bean.PlayerBean;
 import com.maplr.testhockeygame.dto.PlayerDto;
 import com.maplr.testhockeygame.mapper.PlayerMapper;
 import com.maplr.testhockeygame.service.PlayerService;
@@ -21,8 +21,8 @@ public class PlayerResource {
 
 	@PostMapping()
 	public ResponseEntity<PlayerDto> create(@RequestBody PlayerDto playerDto) {
-		Player createdPlayer = playerService.create(playerMapper.toBean(playerDto));
-		return ResponseEntity.ok().body(playerMapper.toDto(createdPlayer));
+		PlayerBean createdPlayer = playerService.create(playerMapper.toBean(playerDto));
+		return ResponseEntity.status(201).body(playerMapper.toDto(createdPlayer));
 	}
 
 	@PutMapping("/captain/{number}")

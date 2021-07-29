@@ -1,15 +1,6 @@
-package com.maplr.testhockeygame.entity;
+package com.maplr.testhockeygame.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "t_player")
-public class Player {
-	@Id
-	@GeneratedValue
+public class PlayerBean {
 	Long number;
 	Long teamId;
 	String name;
@@ -21,7 +12,7 @@ public class Player {
 		return number;
 	}
 
-	public Player setNumber(Long number) {
+	public PlayerBean setNumber(Long number) {
 		this.number = number;
 		return this;
 	}
@@ -30,7 +21,7 @@ public class Player {
 		return teamId;
 	}
 
-	public Player setTeamId(Long teamId) {
+	public PlayerBean setTeamId(Long teamId) {
 		this.teamId = teamId;
 		return this;
 	}
@@ -39,7 +30,7 @@ public class Player {
 		return name;
 	}
 
-	public Player setName(String name) {
+	public PlayerBean setName(String name) {
 		this.name = name;
 		return this;
 	}
@@ -48,7 +39,7 @@ public class Player {
 		return lastname;
 	}
 
-	public Player setLastname(String lastname) {
+	public PlayerBean setLastname(String lastname) {
 		this.lastname = lastname;
 		return this;
 	}
@@ -57,7 +48,7 @@ public class Player {
 		return position;
 	}
 
-	public Player setPosition(String position) {
+	public PlayerBean setPosition(String position) {
 		this.position = position;
 		return this;
 	}
@@ -66,14 +57,14 @@ public class Player {
 		return isCaptain;
 	}
 
-	public Player setIsCaptain(boolean captain) {
+	public PlayerBean setIsCaptain(boolean captain) {
 		isCaptain = captain;
 		return this;
 	}
 
 	@Override
 	public String toString() {
-		return "Player{" +
+		return "PlayerDto{" +
 				"number=" + number +
 				", teamId=" + teamId +
 				", name='" + name + '\'' +

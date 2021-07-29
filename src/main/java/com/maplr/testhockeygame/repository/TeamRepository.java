@@ -1,7 +1,15 @@
 package com.maplr.testhockeygame.repository;
 
-import com.maplr.testhockeygame.entity.Team;
+import com.maplr.testhockeygame.bean.TeamBean;
+import com.maplr.testhockeygame.repository.entity.Team;
 
 public interface TeamRepository {
-	Team findByYear(String year);
+
+	/**
+	 * Recherche la team selon l'année
+	 *
+	 * @param year année
+	 * @return {@link Team}
+	 */
+	TeamBean findByYear(String year);
 }
