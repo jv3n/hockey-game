@@ -5,9 +5,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet  author="hockey" id="04-init-insert-data-player">
+    <changeSet  author="hockey" id="V0/04-init-insert-data-player">
         <insert tableName="t_player">
-            <column name="pla_number" valueComputed="seq_pla_number.NEXTVAL"/>
+            <column name="pla_number" valueSequenceNext="seq_pla_number"/>
             <column name="pla_team_id" value="1"/>
             <column name="pla_name" value="Jean"/>
             <column name="pla_lastname" value="Marc"/>

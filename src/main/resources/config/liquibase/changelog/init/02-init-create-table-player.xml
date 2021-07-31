@@ -5,8 +5,8 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet  author="hockey" id="02-init-create-table-player">
-        <createSequence sequenceName="seq_pla_number" startValue="1" incrementBy="1"/>
+    <changeSet  author="hockey" id="V0/02-init-create-table-player">
+        <createSequence sequenceName="seq_pla_number" startValue="1" incrementBy="1" dataType="bigint"/>
 
         <createTable tableName="t_player" remarks="Table des Player">
             <column name="pla_number" remarks="Identifiant du Player" type="int">
