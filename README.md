@@ -197,4 +197,35 @@ Une fois terminé, veuillez créer un nouveau dépot sur GitHub et l'envoyer par
 
 **Bonne chance et bon game ! 🏒**
 
-          
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+# Lancement de l'appli en local
+
+## Docker
+
+Préalablement installer [Docker](https://docs.docker.com/docker-for-windows/install/) sur le poste de dev puis : 
+ - Ouvrir un terminal dans ```docker/docker-compose.yml```
+ - Taper la commande ```docker-compose up -d```, permet de créer le container Postegres.
+
+Le docker-compose comprend également un Portainer pour l'administration des container. <br>
+Quand les container sont lancés, on peut s'y rendre sur ```http://localhost:9000/#/dashboard```
+
+## Maven
+
+A la racine du projet ouvrir un terminal et faire un ```mvn clean install -DskipTests```<br>
+Puis démarrer le back.
+
+## Acces à la base Postgres
+
+![Impossible de charger l'image](./x_readme-screens/screen1.png?raw=true)
+
+Avec mot de passe : ```root```
+
+## React
+
+Installer [Node](https://nodejs.org/en/download/). <br>
+A la racine de la webapp, dans webapp, ouvrir un terminal :
+ - Installer Yarn ```npm install --global yarn```
+ - dl les dependences Node ```yarn install```
+ - Lancer le front ```yarn start```
+ - Acces a l'appli sur le port [3000](https://localhost:3000)

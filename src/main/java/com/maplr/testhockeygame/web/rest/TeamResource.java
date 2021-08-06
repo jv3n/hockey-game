@@ -3,7 +3,6 @@ package com.maplr.testhockeygame.web.rest;
 import com.maplr.testhockeygame.dto.TeamDto;
 import com.maplr.testhockeygame.mapper.TeamMapper;
 import com.maplr.testhockeygame.service.TeamService;
-import com.maplr.testhockeygame.service.impl.TeamServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +19,7 @@ public class TeamResource {
 	}
 
 	@GetMapping("/{year}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<TeamDto> getTeam(@PathVariable String year) {
 		return ResponseEntity.ok(teamMapper.toDto(teamService.findTeamByYear(year)));
 	}

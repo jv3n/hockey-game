@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.width {
+  margin-right: 10px;
+  width: 170px;
+}
